@@ -21,15 +21,24 @@ export namespace Components {
     'opened'?: boolean;
     'title'?: string;
   }
+
+  interface UcTooltip {
+    'text': string;
+  }
+  interface UcTooltipAttributes extends StencilHTMLAttributes {
+    'text'?: string;
+  }
 }
 
 declare global {
   interface StencilElementInterfaces {
     'UcSideDrawer': Components.UcSideDrawer;
+    'UcTooltip': Components.UcTooltip;
   }
 
   interface StencilIntrinsicElements {
     'uc-side-drawer': Components.UcSideDrawerAttributes;
+    'uc-tooltip': Components.UcTooltipAttributes;
   }
 
 
@@ -39,12 +48,20 @@ declare global {
     new (): HTMLUcSideDrawerElement;
   };
 
+  interface HTMLUcTooltipElement extends Components.UcTooltip, HTMLStencilElement {}
+  var HTMLUcTooltipElement: {
+    prototype: HTMLUcTooltipElement;
+    new (): HTMLUcTooltipElement;
+  };
+
   interface HTMLElementTagNameMap {
     'uc-side-drawer': HTMLUcSideDrawerElement
+    'uc-tooltip': HTMLUcTooltipElement
   }
 
   interface ElementTagNameMap {
     'uc-side-drawer': HTMLUcSideDrawerElement;
+    'uc-tooltip': HTMLUcTooltipElement;
   }
 
 
